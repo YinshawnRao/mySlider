@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<meta name="format-detection" content="telephone=no,email=no">
+	<title>移动端滑动组件</title>
+	<link rel="stylesheet" type="text/css" href="../css/mySlider.css">
+</head>
+<body>
+	<div id="slider_wrapper" class="slider_wrapper">
+		<div class="slider_content">
+			<div class="single_slide" data-title="这是滑块1">滑块1</div>
+			<div class="single_slide" data-title="这是滑块2">滑块2</div>
+			<div class="single_slide" data-title="这是滑块3">滑块3</div>
+			<div class="single_slide" data-title="这是滑块4">滑块4</div>
+			<div class="single_slide" data-title="这是滑块5">滑块5</div>
+		</div>
+		<div class="slider_tag">
+			<p class="tag_title"></p>
+			<div class="tag_ctrl"></div>
+		</div>
+	</div>
+
+	<div id="slider_wrapper2" class="slider_wrapper">
+		<div class="slider_content">
+			<div class="single_slide" data-title="这是滑块11">滑块11</div>
+			<div class="single_slide" data-title="这是滑块22">滑块22</div>
+			<div class="single_slide" data-title="这是滑块33">滑块33</div>
+			<div class="single_slide" data-title="这是滑块44">滑块44</div>
+		</div>
+		<div class="slider_tag">
+			<p class="tag_title"></p>
+			<div class="tag_ctrl"></div>
+		</div>
+	</div>
+
+	<div id="slider_wrapper3" class="slider_wrapper">
+		<div class="slider_content">
+			<div class="single_slide" data-title="这是滑块111">滑块111</div>
+			<div class="single_slide" data-title="这是滑块222">滑块222</div>
+			<div class="single_slide" data-title="这是滑块333">滑块333</div>
+		</div>
+		<div class="slider_tag">
+			<p class="tag_title"></p>
+			<div class="tag_ctrl"></div>
+		</div>
+	</div>
+
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/mySlider.js"></script>
+	<script>
+	new MySlider("#slider_wrapper",{
+		onTouchStart: function(){
+			console.log("slider1 touch start");
+		},
+		onTouchMove: function(){
+			console.log("slider1 touch move");
+		},
+		onTouchEnd: function(){
+			console.log("slider1 touch end");
+		}
+	});
+	new MySlider("#slider_wrapper2",{
+		onTransitionEnd: function(slider){
+			console.log("slider2 transition end");
+			console.log("当前序号为："+slider.curIndex);
+		}
+	});
+	new MySlider("#slider_wrapper3");
+	</script>
+</body>
+</html>
